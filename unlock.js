@@ -12,26 +12,26 @@ var loader = setInterval(function () {
             inputList.forEach(changeaction);
             function changeaction(value, index, ar) {
                 let e = document.getElementById("page-container").childNodes[index];
-                if(e.childNodes.length > 0 && e.classList.length ===3){
-                    e.firstChild.style.display="block";
-                    let d = document.createElement('p');
-                    d.id=e.id;
-                    d.classList.add("pf");
-                    d.classList.add("w0");
-                    d.classList.add("h0");
-                    d.classList.add("test");
-                    d.innerHTML = e.innerHTML;
-                    document.getElementById("page-container").replaceChild(d,e);
+                if(e.firstChild.childNodes.length > 0 && e.classList.length ===3){
+                        e.firstChild.removeAttribute("style");
+                        let d = document.createElement('p');
+                        d.id=e.id;
+                        d.classList.add("pf");
+                        d.classList.add("w0");
+                        d.classList.add("h0");
+                        d.classList.add("test");
+                        d.innerHTML = e.innerHTML;
+                        document.getElementById("page-container").replaceChild(d,e);
                     pages=pages-1;
-                    let input2= $('.test');
+                   /* let input2= $('.test');
                     let inputList2 = Array.prototype.slice.call(input2);
                     inputList2.forEach(removechild);
-                    document.getElementById("page-container").childNodes[index].firstChild.removeAttribute("style");
                     function removechild(value2, index2, ar2){           
-                        console.log(document.getElementById("page-container").childNodes[index].firstChild);
+                        //console.log(document.getElementById("page-container").childNodes[index].firstChild);
                         $('#pf'+index2).children('span').remove();
                         $('#pf'+index2).removeAttr("id");
-                    }
+                    }*/
+                   // console.log(pages);
                 }
                 if(pages <=0){
                     
@@ -71,7 +71,7 @@ var loader = setInterval(function () {
                 }
             }
 
-        }, 1000);
+        }, 100);
     }
    
  }, 300);
